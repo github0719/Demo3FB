@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import FacebookCore //FB的基本功能套件
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    // 自己新增func 也是一開始app執行 取得資料
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        ApplicationDelegate.shared.application(app, open: url, options: options)
+    }
+    // 程式只有一行 可以不用打 return ,會自己回傳
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         return true
     }
 
